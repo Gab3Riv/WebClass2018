@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>HELLO WORLD</title>
+    <!---CSS-->
+    <style>
+    #helloText{
+        text-align: center;
+        font-size: 150px;
+    }
+    </style>
+    <!---JavaScript-->
+    <script>
+        var i = -1;
+        var colors = ['blue','red','green'];
+        var update = function(){
+            i+=1;
+            document.getElementById('helloText').style.color = colors[i];
+            if(i === 2){
+                i = -1;
+            }
+        }
+        setInterval(update,1000);
+    </script>
+</head>
+<!---HTML-->
+<body style='background-image: url("https://blogpatagonia.australis.com/wp-content/uploads/2017/01/iStock-179998375.jpg")'>
+    <div id='helloText'>HELLO WORLD <br>by <br>Homboldt Penguins</div>
+</body>
+</html>
