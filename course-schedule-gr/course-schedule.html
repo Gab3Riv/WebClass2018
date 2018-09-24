@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+    Name: Gabriel Rivera
+    Course Name: Web and Distributed Programming
+    Project Number: 2
+    Semester: Fall 2018
+-->
+<html lang="en">
+<head>
+    <title>Course Schedule</title>
+    <!---CSS-->
+    <style>
+        /* Everything Below Is To Center Onto Page OR Outline the Table */
+        body{
+            background-color: cyan;
+            text-align: center;
+        }
+        ul{
+            display: table;
+            margin: 0 auto;
+        }
+        table{
+            display: table;
+            margin: 0 auto;
+        }
+        table, th, td{
+            border: 1px solid black;
+        }
+        .coolFontBro{
+            font-weight: bold;
+        }
+    </style>
+    <!---JavaScript-->
+    <script>
+        //Submits a thank you feedback message
+        var submit = function(){
+            document.getElementById('textBoxArea').innerHTML = 'Thank You For Your Feedback!';
+        }
+        //Clears the message
+        var clear = function(){
+            document.getElementById('textBoxArea').innerHTML = '.....';
+        }
+    </script>
+</head>
+<!---HTML-->
+<body>
+    <h1 style='font-size: 46px;'>Course Schedule</h1>
+    <!--Table of Contents-->
+    <div class='coolFontBro'>Table Of Contents</div>
+    <a href='#bio'>Biography</a><br>
+    <a href='#courses'>Courses</a><br>
+    <a href='#schedule'>Schedule</a><br><br>
+    <!--Bio Section-->
+    <div class='coolFontBro' id='bio'>Biography</div>
+        <blockquote>
+            I am Gabriel Rivera and I am very interested in web developement. I want to be a full
+            stack web developer. What a full stack developer is, is being able to not only do front
+            end but back end as well. Its basically being a jack of all trades in web development.
+        </blockquote>
+        <img src='https://cdn.uconnectlabs.com/wp-content/uploads/sites/5/2017/12/20170301155447.jpg' alt='Picture of Full Stack Web Developer' height='500' width='800'>
+    <!--Course Section-->
+    <div class='coolFontBro' id='courses'>Courses</div>
+        <ul>
+            <li>HTML Class #0001</li>
+            <li>CSS Class #0002</li>
+            <li>JavaScript Class #0003</li>
+            <li>MySQL Class #0004</li>
+        </ul><br>
+        <!--Schedule Section-->
+    <div class='coolFontBro' id='schedule'>Schedule</div>
+    <table>
+        <tr>
+            <th>TIME</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+        </tr>
+        <tr>
+            <td>9am</td>
+            <td>HTML Class #0001</td>
+            <td></td>
+            <td>HTML Class #0001</td>
+            <td></td>
+            <td>HTML Class #0001</td>
+        </tr>
+        <tr>
+            <td>10am</td>
+            <td>CSS Class #0002</td>
+            <td></td>
+            <td>CSS Class #0002</td>
+            <td></td>
+            <td>CSS Class #0002</td>
+        </tr>
+        <tr>
+            <td>11am</td>
+            <td>JavaScript Class #0003</td>
+            <td></td>
+            <td>JavaScript Class #0003</td>
+            <td></td>
+            <td>JavaScript Class #0003</td>
+        </tr>
+        <tr>
+            <td>12pm</td>
+            <td></td>
+            <td>MySQL Class #0004</td>
+            <td></td>
+            <td>MySQL Class #0004</td>
+            <td></td>
+        </tr>
+    </table><br>
+    <!--Feedback Section-->
+    <div>Feedback</div>
+    <textarea rows="4" cols="50" id='textBoxArea'>
+If you have any feedback, feel free to insert it here!
+    </textarea><br>
+    First name: <input type="text" name="FirstName" value=""><br>
+    <div>
+        <input type="radio" id="male" 
+                name="male" value="male" checked />
+        <label for="male">Male</label>
+    </div>
+    <div>
+        <input type="radio" id="female" 
+                name="female" value="female" />
+        <label for="female">Female</label>
+    </div>    
+    <button onClick='submit()' id='submitButton'>Submit</button>
+    <button onClick='clear()' id='clearButton'>Clear</button>
+</body>
+</html>
