@@ -1,9 +1,94 @@
-var gMap;
+var gMap, currentPlace;
 var score = 0;
 var loc1 = {lat:12.432,lng:43.234};
 
+var easyPlaces = [
+    //These will only be places in United States
+    {
+        'name': 'shouldbethis',
+        'lat': 0,
+        'lon': 0,
+        'chosen': false
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': 'it should also choose this one',
+        'lat': 0,
+        'lon': 0,
+        'chosen': false
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    },
+    {
+        'name': '',
+        'lat': 0,
+        'lon': 0
+    }
+];
+var mediumPlaces = [
+    //These will only be places in North America
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+];
+var hardPlaces = [
+    //These places can be anywhere in the World
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+];
+
 function launch() {
     document.getElementById('header').innerHTML = 'Welcome to Gabriels Map Mania!';
+    //CHANGE THIS LATER
+    currentPlace = getRandomPlace('Easy');
+    console.log(currentPlace);
 }
 function initMap() {
     // Where the map initiates
@@ -34,6 +119,30 @@ function SetHint(hint) {
 }
 function SetScore() {
     document.getElementById("score-id").value = score; 
+}
+var getRandomPlace = function(difficulty){
+    var randomNum, length, objectArr;
+    var validPlace = false;
+    if(difficulty === 'Easy'){
+        objectArr = easyPlaces;
+        length = easyPlaces.length;  
+    }else if(difficulty === 'Medium'){
+        objectArr = mediumPlaces;
+        length = mediumPlaces.length;  
+    }else if(difficult === 'Hard'){
+        objectArr = hardPlaces;
+        length = hardPlaces.length;    
+    }else{
+        console.log('Difficulty Invalid.');
+    }
+    while(validPlace === false){
+        randomNum = Math.floor(Math.random() * length);
+        if(objectArr[randomNum].chosen === false){
+            objectArr[randomNum].chosen = true;
+            validPlace = true;
+        }
+    }
+    return objectArr[randomNum];
 }
 
 
