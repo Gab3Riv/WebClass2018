@@ -1,68 +1,100 @@
 var gMap, currentPlace;
+var gameStarted = false;
 var score = 0;
 var loc1 = {lat:12.432,lng:43.234};
 
+//These will only be places in United States
 var easyPlaces = [
-    //These will only be places in United States
     {
-        'name': 'A Random Chick Fil A',
-        'info': 'Oh how I love Chick Fil A, One of my favorite fast food places to eat at.',
-        'coordinates': {
-            'lat': 41.718333,
-            'lon': -88.126764,
+        "name": "A Random Chick Fil A",
+        "info": "Oh how I love Chick Fil A, One of my favorite fast food places to eat at.",
+        "coordinates": {
+            "lat": 41.718333,
+            "lng": -88.126764
         },
-        'image': 'something.png',
-        'chosen': false
+        "image": "something.png",
+        "chosen": false
     },
     {
-        'name': 'Dave & Busters',
-        'info': 'Whats a Round1?',
-        'coordinates': {
-            'lat': 32.680811,
-            'lon': -97.104504,
+        "name": "Dave & Busters",
+        "info": "Whats a Round1?",
+        "coordinates": {
+            "lat": 32.680811,
+            "lng": -97.104504
         },
-        'chosen': false
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': 'it should also choose this one',
-        'lat': 0,
-        'lon': 0,
-        'chosen': false
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "chosen": false
     }
 ];
 var mediumPlaces = [
@@ -93,30 +125,36 @@ var hardPlaces = [
 ];
 
 function launch() {
-    document.getElementById('header').innerHTML = 'Welcome to Gabriels Map Mania!';
+    document.getElementById("header").innerHTML = "Welcome to Gabriels Map Mania!";
     //CHANGE THIS LATER
-    currentPlace = getRandomPlace('Easy');
+    currentPlace = getRandomPlace("Easy");
     console.log(currentPlace);
+    gameStarted = true;
 }
 function initMap() {
     // Where the map initiates
-    gMap = new google.maps.Map(document.getElementById('myMapID'), {
+    gMap = new google.maps.Map(document.getElementById("myMapID"), {
         center: {lat: 41.878, lng: 10}, zoom: 3});
 
-    google.maps.event.addListener(gMap, 'idle', function() {
+    google.maps.event.addListener(gMap, "idle", function() {
         updateGame()
     });
 
-    SetHint("You're Close");
+    SetHint("You"re Close");
     SetScore(score);
 }
 function updateGame() {
-    console.log('You have moved the map!!');
+    console.log("You have moved the map!!");
     var zoomLevel = gMap.getZoom()
     var inBounds = false;
 
-    if (gMap.getBounds().contains(loc1)) {
-        inBounds = true;
+    if(gameStarted){
+        if(gMap.getBounds().contains(currentPlace.coordinates)){
+            inBounds = true;
+            if(zoomLevel === 8){
+                console.log("You would spawn flag here");
+            }   
+        }
     }
 
     console.log("You are in bounds: " + inBounds+".");
@@ -131,17 +169,17 @@ function SetScore() {
 var getRandomPlace = function(difficulty){
     var randomNum, length, objectArr;
     var validPlace = false;
-    if(difficulty === 'Easy'){
+    if(difficulty === "Easy"){
         objectArr = easyPlaces;
         length = easyPlaces.length;  
-    }else if(difficulty === 'Medium'){
+    }else if(difficulty === "Medium"){
         objectArr = mediumPlaces;
         length = mediumPlaces.length;  
-    }else if(difficult === 'Hard'){
+    }else if(difficult === "Hard"){
         objectArr = hardPlaces;
         length = hardPlaces.length;    
     }else{
-        console.log('Difficulty Invalid.');
+        console.log("Difficulty Invalid.");
     }
     while(validPlace === false){
         randomNum = Math.floor(Math.random() * length);
