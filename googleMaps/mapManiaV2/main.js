@@ -5,15 +5,23 @@ var loc1 = {lat:12.432,lng:43.234};
 var easyPlaces = [
     //These will only be places in United States
     {
-        'name': 'shouldbethis',
-        'lat': 0,
-        'lon': 0,
+        'name': 'A Random Chick Fil A',
+        'info': 'Oh how I love Chick Fil A, One of my favorite fast food places to eat at.',
+        'coordinates': {
+            'lat': 41.718333,
+            'lon': -88.126764,
+        },
+        'image': 'something.png',
         'chosen': false
     },
     {
-        'name': '',
-        'lat': 0,
-        'lon': 0
+        'name': 'Dave & Busters',
+        'info': 'Whats a Round1?',
+        'coordinates': {
+            'lat': 32.680811,
+            'lon': -97.104504,
+        },
+        'chosen': false
     },
     {
         'name': '',
