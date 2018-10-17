@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Gabriel Rivera
+    Class:   Web & Distributed Programming 
+    Project: Help Example
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Gabriel's Help Example</title>
+        <link rel="stylesheet" href="main.css"> 
+        <script src="main.js"></script>
+    </head>
+    <h1>Help Example - Gabriel Rivera</h1>
+    <body onload="launch()">
+        <button onclick="modal.open()" id="myBtn">Open Help</button><br>
+
+        <!-- Help Information for Modal Window -->
+        <div id="helpID" class="help">
+            <!-- Help content -->
+            <div class="help-content">
+                <span onclick="modal.close()" class="close">&times;</span>
+                <h2>Help Header Text </h2>
+                <p>Testing testing, testing testing, more testing...... testing.......</p>
+                <button onclick="modal.close()" >Close Help</button>
+            </div>
+        </div>
+    </body>
+</html>

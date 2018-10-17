@@ -125,7 +125,7 @@ var hardPlaces = [
 ];
 
 function launch() {
-    document.getElementById("header").innerHTML = "Welcome to Gabriels Map Mania!";
+    document.getElementById("header").innerHTML = "Welcome to Gabriel's Map Mania!";
     //CHANGE THIS LATER
     currentPlace = getRandomPlace("Easy");
     console.log(currentPlace);
@@ -140,7 +140,7 @@ function initMap() {
         updateGame()
     });
 
-    SetHint("You"re Close");
+    SetHint("You're Close");
     SetScore(score);
 }
 function updateGame() {
@@ -167,17 +167,26 @@ function SetScore() {
     document.getElementById("score-id").value = score; 
 }
 var getRandomPlace = function(difficulty){
-    var randomNum, length, objectArr;
+    var randomNum, length, objectArr, randomLat, randomLng;
     var validPlace = false;
+    for(var i = 0; i < 200; i+=1){
+        randomLat = (Math.random() * 180) - 90;
+        console.log(randomLat);
+    }
     if(difficulty === "Easy"){
         objectArr = easyPlaces;
         length = easyPlaces.length;  
     }else if(difficulty === "Medium"){
         objectArr = mediumPlaces;
         length = mediumPlaces.length;  
-    }else if(difficult === "Hard"){
+    }else if(difficulty === "Hard"){
         objectArr = hardPlaces;
         length = hardPlaces.length;    
+    }else if(difficulty === "Extreme"){
+        for(var i = 0; i < 100; i+=1){
+            randomLat = Math.floor(Math.random() * 180) - 90;
+            console.log(randomLat);
+        }
     }else{
         console.log("Difficulty Invalid.");
     }
