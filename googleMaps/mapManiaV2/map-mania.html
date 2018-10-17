@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Gabriel Rivera
+    Class:   Web & Distributed Programming 
+    Project: Map Mania v1
+    Session: su18-cpsc-24700-lt1
+    Description: This is the first version of Map Mania that I am creating for Programming Assignment 3.
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Gabriel's Map Mania</title>
+        <link rel="stylesheet" href="main.css"> 
+        <script src="main.js"></script>
+    </head>
+    <body onload="launch()">
+        <h1 id='header'></h1>        
+        Hint: <input id="hint-id" type="text" value="" size="120" disabled><br><br>
+        Score: <input id="score-id" type="text" value="" size="2" disabled><br><br>
+
+        <div id="myMapID"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5pISSmtM49anwNvgTJc6TkjW2EDqD7d8&callback=initMap"
+            async defer>
+        </script>
+    </body>
+</html>
