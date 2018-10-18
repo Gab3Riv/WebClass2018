@@ -1,4 +1,4 @@
-var gMap, currentPlace;
+var gMap, currentPlace, markLocation;
 var gameStarted = false;
 var score = 0;
 var loc1 = {lat:12.432,lng:43.234};
@@ -25,74 +25,74 @@ var easyPlaces = [
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "McDonalds",
+        "info": "Everyone knows a McDonalds.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 47.060829,
+            "lng": -109.432538
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "The Crawfish Pot & Oyster Bar",
+        "info": "This is where I tried Crawfish for the first time.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 29.651531,
+            "lng": -95.251680
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "Whataburger",
+        "info": "The McDonalds of Texas.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 29.491216,
+            "lng": -98.704880
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "Franklin, Tennessee",
+        "info": "Where I might live in the future.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 35.917390,
+            "lng": -86.868190
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "In-N-Out Burger",
+        "info": "I Still need to try this Place.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 34.067790,
+            "lng": -117.973513
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "Hilton Head Island South Carolina",
+        "info": "A great Island to take a vacation on in South Carolina.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 32.206675,
+            "lng": -80.732926
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "Lewis University",
+        "info": "Where I attend College.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 41.604803,
+            "lng": -88.080467
         },
         "chosen": false
     },
     {
-        "name": "",
-        "info": "",
+        "name": "Marco Island, Florida",
+        "info": "Last beach vacation I had.",
         "coordinates": {
-            "lat": 0,
-            "lng": 0
+            "lat": 25.936186,
+            "lng": -81.731030
         },
         "chosen": false
     }
@@ -124,17 +124,24 @@ var hardPlaces = [
     {}
 ];
 
+var checkIfWon = function(){
+    var placesChecked = 0;
+    for (var i in easyPlaces.chosen){
+        placesChecked+=1;
+    }
+    console.log(placesChecked);
+}
+
 function launch() {
     document.getElementById("header").innerHTML = "Welcome to Gabriel's Map Mania!";
     //CHANGE THIS LATER
     currentPlace = getRandomPlace("Easy");
-    console.log(currentPlace);
-    gameStarted = true;
+    gameStarted = true; 
 }
 function initMap() {
     // Where the map initiates
     gMap = new google.maps.Map(document.getElementById("myMapID"), {
-        center: {lat: 41.878, lng: 10}, zoom: 3});
+        center:{lat: 41.878, lng: 10}, zoom: 3});
 
     google.maps.event.addListener(gMap, "idle", function() {
         updateGame()
@@ -148,11 +155,15 @@ function updateGame() {
     var zoomLevel = gMap.getZoom()
     var inBounds = false;
 
+    checkIfWon();
+    //Checks if your in bounds
     if(gameStarted){
         if(gMap.getBounds().contains(currentPlace.coordinates)){
             inBounds = true;
             if(zoomLevel === 8){
-                console.log("You would spawn flag here");
+                //Your Flag Will Spawn here -- For future reference
+                markLocation = new google.maps.Marker({position:{lat:currentPlace.coordinates.lat,lng:currentPlace.coordinates.lng}, map:gMap});
+                currentPlace = getRandomPlace("Easy");
             }   
         }
     }
@@ -167,12 +178,25 @@ function SetScore() {
     document.getElementById("score-id").value = score; 
 }
 var getRandomPlace = function(difficulty){
-    var randomNum, length, objectArr, randomLat, randomLng;
+    var randomNum, length, objectArr, randomLat, randomLng, info;
     var validPlace = false;
-    for(var i = 0; i < 200; i+=1){
-        randomLat = (Math.random() * 180) - 90;
-        console.log(randomLat);
+    var objectArr = {
+        "name": "",
+        "info": "",
+        "coordinates": {
+            "lat": 0,
+            "lng": 0
+        },
+        "image": "something.png"
     }
+
+    //This is just for testing purposes
+    objectArr.name = "No Name";
+    objectArr.info = "Sorry But Extreme Difficulty Does Not Give Any Info.";
+    objectArr.coordinates.lat = (Math.random() * 180) - 90;
+    objectArr.coordinates.lng = (Math.random() * 360) - 180;
+    //console.log(objectArr);
+
     if(difficulty === "Easy"){
         objectArr = easyPlaces;
         length = easyPlaces.length;  
@@ -183,10 +207,11 @@ var getRandomPlace = function(difficulty){
         objectArr = hardPlaces;
         length = hardPlaces.length;    
     }else if(difficulty === "Extreme"){
-        for(var i = 0; i < 100; i+=1){
-            randomLat = Math.floor(Math.random() * 180) - 90;
-            console.log(randomLat);
-        }
+        objectArr.name = "No Name";
+        objectArr.info = "Sorry But Extreme Difficulty Does Not Give Any Info.";
+        objectArr.coordinates.lat = (Math.random() * 180) - 90;
+        objectArr.coordinates.lng = (Math.random() * 360) - 180;
+        //console.log(objectArr);
     }else{
         console.log("Difficulty Invalid.");
     }
@@ -197,6 +222,7 @@ var getRandomPlace = function(difficulty){
             validPlace = true;
         }
     }
+    console.log(objectArr[randomNum]);
     return objectArr[randomNum];
 }
 
