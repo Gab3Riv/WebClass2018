@@ -1,5 +1,5 @@
 var gMap, currentPlace, markLocation;
-var gameStarted = false;
+var gameStarted, gameWon = false;
 var score = 0;
 var loc1 = {lat:12.432,lng:43.234};
 
@@ -125,11 +125,12 @@ var hardPlaces = [
 ];
 
 var checkIfWon = function(){
-    var placesChecked = 0;
-    for (var i in easyPlaces.chosen){
-        placesChecked+=1;
+    score += 1;
+    if(score >= 10){
+        gameWon = true;
+        console.log('Game Won!');
     }
-    console.log(placesChecked);
+    console.log(score);
 }
 
 function launch() {
@@ -155,7 +156,6 @@ function updateGame() {
     var zoomLevel = gMap.getZoom()
     var inBounds = false;
 
-    checkIfWon();
     //Checks if your in bounds
     if(gameStarted){
         if(gMap.getBounds().contains(currentPlace.coordinates)){
@@ -164,6 +164,7 @@ function updateGame() {
                 //Your Flag Will Spawn here -- For future reference
                 markLocation = new google.maps.Marker({position:{lat:currentPlace.coordinates.lat,lng:currentPlace.coordinates.lng}, map:gMap});
                 currentPlace = getRandomPlace("Easy");
+                checkIfWon();
             }   
         }
     }
@@ -190,13 +191,6 @@ var getRandomPlace = function(difficulty){
         "image": "something.png"
     }
 
-    //This is just for testing purposes
-    objectArr.name = "No Name";
-    objectArr.info = "Sorry But Extreme Difficulty Does Not Give Any Info.";
-    objectArr.coordinates.lat = (Math.random() * 180) - 90;
-    objectArr.coordinates.lng = (Math.random() * 360) - 180;
-    //console.log(objectArr);
-
     if(difficulty === "Easy"){
         objectArr = easyPlaces;
         length = easyPlaces.length;  
@@ -215,15 +209,16 @@ var getRandomPlace = function(difficulty){
     }else{
         console.log("Difficulty Invalid.");
     }
-    while(validPlace === false){
+    while(validPlace === false && difficulty != "Extreme"){
         randomNum = Math.floor(Math.random() * length);
         if(objectArr[randomNum].chosen === false){
             objectArr[randomNum].chosen = true;
             validPlace = true;
+            objectArr = objectArr[randomNum];
         }
     }
-    console.log(objectArr[randomNum]);
-    return objectArr[randomNum];
+    console.log(objectArr);
+    return objectArr;
 }
 
 
