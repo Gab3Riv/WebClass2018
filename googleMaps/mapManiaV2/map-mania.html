@@ -3,24 +3,72 @@
 <!--
     Author:  Gabriel Rivera
     Class:   Web & Distributed Programming 
-    Project: Map Mania v1
+    Project: Map Mania v2
     Session: su18-cpsc-24700-lt1
-    Description: This is the first version of Map Mania that I am creating for Programming Assignment 3.
+    Description: This is the final version for Map Mania! Enjoy!!! (:
 -->
     <head>
         <meta charset="UTF-8">
         <title>Gabriel's Map Mania</title>
         <link rel="stylesheet" href="main.css"> 
         <script src="main.js"></script>
+        <script src="modal.js"></script>
     </head>
+
+    <!-- This is the START Modal -->
+    <div id="startModal" class="help">
+        <!-- Help content -->
+        <div class="help-content">
+            <span onclick="start.close()"></span>
+            <div class="centerText">
+                <h2>Welcome To Gabe's Map Mania!</h2>
+                <p>If you want know how to play the game click the "How To Play" button below.</p>
+                <button onclick="help.open()" >How To Play</button>
+                <p>Choose Your Difficulty:</p>
+                <p style="font-size: 12px">Note: Easy mode consists of locations only in United States, Medium is Locations all of North America, Hard is anywhere there is Land, and Extreme is Anywhere Land and Water.</p>
+                <form action="">
+                    <input type="radio" name="difficulty" value="Easy" id="easyButton"> Easy
+                    <input type="radio" name="difficulty" value="Medium" id="mediumButton"> Medium
+                    <input type="radio" name="difficulty" value="Hard" id="hardButton"> Hard
+                    <input type="radio" name="difficulty" value="Extreme" id="extremeButton"> Extreme<br>
+                </form>
+                <div id='pleaseCheckDifficulty' style="color: red; font-weight: bold"></div>
+                <button onclick="start.close()" >Start Game</button>
+            </div>
+        </div>
+    </div>
+    <!-- Above is the Modal -->
+    <!-- This is the HELP Modal -->
+    <div id="helpModal" class="help">
+        <!-- Help content -->
+        <div class="help-content">
+            <span onclick="help.close()" class="close">&times;</span>
+            <div class="centerText">
+                <h2>How To Play</h2>
+            </div>
+            <p>NOTE: If The Music Isnt Playing Go To <a style="font-weight: bold">chrome://flags/#autoplay-policy</a> And Select <a style="font-weight: bold">No User Gesture Is Required.</a></p>
+            <p>To win the game you must reveal all 10 locations. Locations will be selected at random.</p>
+            <p>You will know if you are getting closer to the location if the music is getting louder. The closer you are, the louder it gets, and vice versa.</p>
+            <p>As soon as your game starts the clock will start ticking which is your "Score".</p>
+            <p>Try to get the lowest score possible.</p>
+            <p>Good Luck!</p>
+            <button onclick="help.close()" >Close Help</button>
+        </div>
+    </div>
+    <!-- Above is the Modal -->
+
+    <!-- This is the MAIN BODY -->
     <body onload="launch()">
-        <h1 id='header'></h1>        
-        Hint: <input id="hint-id" type="text" value="" size="120" disabled><br><br>
-        Score: <input id="score-id" type="text" value="" size="2" disabled><br><br>
+        <h1 id='header'></h1>
+        <button onclick="enableCheat()" id="myBtn">Cheat: Show Next Marker</button><br>
+        <button onclick="restart()" id="myBtn">Restart Game</button><br>
+        <button onclick="help.open()" id="myBtn">Open Help</button><br>
+        Your Score: <input id="score-id" type="text" value="" size="2" disabled><br><br>
 
         <div id="myMapID"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5pISSmtM49anwNvgTJc6TkjW2EDqD7d8&callback=initMap"
             async defer>
         </script>
     </body>
+    <!-- Above is the MAIN BODY -->
 </html>
