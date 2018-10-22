@@ -465,17 +465,17 @@ var updateVolume = function(){
     }else if(inBounds === true && (zoomLevel == 7 || zoomLevel == 9)){
         themeSong.volume = 1;
     }else if(inBounds === true && (zoomLevel == 6 || zoomLevel == 10)){
-        themeSong.volume = 0.8;
+        themeSong.volume = 0.75;
     }else if(inBounds === true && (zoomLevel == 5 || zoomLevel == 11)){
-        themeSong.volume = 0.6;
+        themeSong.volume = 0.5;
     }else if(inBounds === true && (zoomLevel == 4 || zoomLevel == 12)){
-        themeSong.volume = 0.4;
-    }else if(inBounds === true && (zoomLevel == 3 || zoomLevel == 13)){
         themeSong.volume = 0.25;
-    }else if(inBounds === true && (zoomLevel == 2 || zoomLevel == 14)){
-        themeSong.volume = 0.1;
-    }else if(inBounds === true && (zoomLevel == 1 || zoomLevel == 15)){
+    }else if(inBounds === true && (zoomLevel == 3 || zoomLevel == 13)){
         themeSong.volume = 0.05;
+    }else if(inBounds === true && (zoomLevel == 2 || zoomLevel == 14)){
+        themeSong.volume = 0.03;
+    }else if(inBounds === true && (zoomLevel == 1 || zoomLevel == 15)){
+        themeSong.volume = 0.02;
     }else{
         themeSong.volume = 0.01;
     }
