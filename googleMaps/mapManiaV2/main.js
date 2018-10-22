@@ -24,6 +24,7 @@ var enableCheat = function(){
 
 //Game has been programmed to work with each difficulty.
 //These will only be places in United States
+//Images are for future use, if someone ever wants to use a custom image
 var easyPlaces = [
     {
         "name": "A Random Chick Fil A",
@@ -32,7 +33,7 @@ var easyPlaces = [
             "lat": 41.718333,
             "lng": -88.126764
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -42,7 +43,7 @@ var easyPlaces = [
             "lat": 32.680811,
             "lng": -97.104504
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -52,7 +53,7 @@ var easyPlaces = [
             "lat": 47.060829,
             "lng": -109.432538
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -62,7 +63,7 @@ var easyPlaces = [
             "lat": 29.651531,
             "lng": -95.251680
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -72,7 +73,7 @@ var easyPlaces = [
             "lat": 29.491216,
             "lng": -98.704880
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -82,7 +83,7 @@ var easyPlaces = [
             "lat": 35.917390,
             "lng": -86.868190
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -92,7 +93,7 @@ var easyPlaces = [
             "lat": 34.067790,
             "lng": -117.973513
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -102,7 +103,7 @@ var easyPlaces = [
             "lat": 32.206675,
             "lng": -80.732926
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -112,7 +113,7 @@ var easyPlaces = [
             "lat": 41.604803,
             "lng": -88.080467
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -122,7 +123,7 @@ var easyPlaces = [
             "lat": 25.936186,
             "lng": -81.731030
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -132,12 +133,13 @@ var easyPlaces = [
             "lat": 28.385311,
             "lng": -81.564022
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     }
 ];
+//Images are for future use, if someone ever wants to use a custom image
+//These will only be places in North America
 var mediumPlaces = [
-    //These will only be places in North America
     {
         "name": "A Random Chick Fil A",
         "info": "Oh how I love Chick Fil A, One of my favorite fast food places to eat at.",
@@ -145,7 +147,7 @@ var mediumPlaces = [
             "lat": 41.718333,
             "lng": -88.126764
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -155,7 +157,7 @@ var mediumPlaces = [
             "lat": 32.680811,
             "lng": -97.104504
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -165,7 +167,7 @@ var mediumPlaces = [
             "lat": 47.060829,
             "lng": -109.432538
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -175,7 +177,7 @@ var mediumPlaces = [
             "lat": 29.651531,
             "lng": -95.251680
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -185,7 +187,7 @@ var mediumPlaces = [
             "lat": 29.491216,
             "lng": -98.704880
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -195,7 +197,7 @@ var mediumPlaces = [
             "lat": 35.917390,
             "lng": -86.868190
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -205,7 +207,7 @@ var mediumPlaces = [
             "lat": 34.067790,
             "lng": -117.973513
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -215,7 +217,7 @@ var mediumPlaces = [
             "lat": 32.206675,
             "lng": -80.732926
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -225,7 +227,7 @@ var mediumPlaces = [
             "lat": 41.604803,
             "lng": -88.080467
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -235,12 +237,13 @@ var mediumPlaces = [
             "lat": 25.936186,
             "lng": -81.731030
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     }
 ];
+//These places can be anywhere in the World
+//Images are for future use, if someone ever wants to use a custom image
 var hardPlaces = [
-    //These places can be anywhere in the World
     {
         "name": "A Random Chick Fil A",
         "info": "Oh how I love Chick Fil A, One of my favorite fast food places to eat at.",
@@ -248,7 +251,7 @@ var hardPlaces = [
             "lat": 41.718333,
             "lng": -88.126764
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -258,7 +261,7 @@ var hardPlaces = [
             "lat": 32.680811,
             "lng": -97.104504
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -268,7 +271,7 @@ var hardPlaces = [
             "lat": 47.060829,
             "lng": -109.432538
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -278,7 +281,7 @@ var hardPlaces = [
             "lat": 29.651531,
             "lng": -95.251680
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -288,7 +291,7 @@ var hardPlaces = [
             "lat": 29.491216,
             "lng": -98.704880
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -298,7 +301,7 @@ var hardPlaces = [
             "lat": 35.917390,
             "lng": -86.868190
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -308,7 +311,7 @@ var hardPlaces = [
             "lat": 34.067790,
             "lng": -117.973513
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png",
         "chosen": false
     },
     {
@@ -318,7 +321,7 @@ var hardPlaces = [
             "lat": 32.206675,
             "lng": -80.732926
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -328,7 +331,7 @@ var hardPlaces = [
             "lat": 41.604803,
             "lng": -88.080467
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     },
     {
@@ -338,12 +341,10 @@ var hardPlaces = [
             "lat": 25.936186,
             "lng": -81.731030
         },
-        "image": "something.png", //Images are for future use, if someone ever wants to use a custom image
+        "image": "something.png", 
         "chosen": false
     }
 ];
-
-
 //This is where the Logic Starts
 var checkIfWon = function(){ //Game Stops Once 10 Places Are Found
     placesChecked += 1;
