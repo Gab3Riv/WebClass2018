@@ -136,7 +136,7 @@ var checkIfWon = function(){
 function launch() {
     document.getElementById("header").innerHTML = "Welcome to Gabriel's Map Mania!";
     //CHANGE THIS LATER
-    currentPlace = getRandomPlace("Easy");
+    currentPlace = getRandomPlace("Extreme");
     gameStarted = true; 
 }
 function initMap() {
