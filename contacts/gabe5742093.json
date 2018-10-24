@@ -1,0 +1,13 @@
+{
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "preferredName": "Hulk",
+    "email": "hulksmash@lewisu.edu",
+    "phoneNumber": "630-HLK-SMSH",
+    "city": "New York",
+    "state": "New York",
+    "zip": "10001",
+    "lat": "40.754425",
+    "lng": "-74.000385",
+    "favoriteHobby": "Smashing"
+}
