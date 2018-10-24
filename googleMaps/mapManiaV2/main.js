@@ -242,6 +242,36 @@ var mediumPlaces = [
         },
         "image": "something.png", 
         "chosen": false
+    },
+    {
+        "name": "Haida Gwaii - British Columbia – Canada",
+        "info": "Haida Gwaii - Canada | 1st Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 53.100507,
+            "lng": -132.042346
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Coronach – Saskatchewan – Canada",
+        "info": "Coronach – Canada | 2nd Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 49.114056,
+            "lng": -105.522770
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Banff/Lake Louise – Alberta – Canada",
+        "info": "Alberta – Canada | 3rd Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 51.424521,
+            "lng": -116.177062
+        },
+        "image": "something.png", 
+        "chosen": false
     }
 ];
 //These places can be anywhere in the World
@@ -343,6 +373,46 @@ var hardPlaces = [
         "coordinates": {
             "lat": 25.936186,
             "lng": -81.731030
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Haida Gwaii - British Columbia – Canada",
+        "info": "Haida Gwaii - Canada | 1st Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 53.100507,
+            "lng": -132.042346
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Coronach – Saskatchewan – Canada",
+        "info": "Coronach – Canada | 2nd Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 49.114056,
+            "lng": -105.522770
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Banff/Lake Louise – Alberta – Canada",
+        "info": "Alberta – Canada | 3rd Best Place To Visit In North America",
+        "coordinates": {
+            "lat": 51.424521,
+            "lng": -116.177062
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Portugal",
+        "info": "A Country I Would Like To Visit In The Future.",
+        "coordinates": {
+            "lat": 39.381302,
+            "lng": -8.232327
         },
         "image": "something.png", 
         "chosen": false
