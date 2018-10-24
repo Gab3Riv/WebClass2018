@@ -1,5 +1,8 @@
 var gMap, currentPlace, markLocation, infoWindow, inBounds, zoomLevel;
 var difficulty = "";
+var markerArray = ["","","","","","","","","",""];
+var infoArray = ["","","","","","","","","",""];
+var listenersArray = ["","","","","","","","","",""];
 var gameStarted, gameWon, cheat = false;
 var score = 0;
 var placesChecked = 0;
@@ -350,7 +353,6 @@ var checkIfWon = function(){ //Game Stops Once 10 Places Are Found
     placesChecked += 1;
     if(placesChecked >= 10){
         gameWon = true;
-        console.log('Game Won!');
     }
 }
 var launch = function() {
@@ -360,14 +362,12 @@ var launch = function() {
 var canStartGame = function(){
     if(!document.getElementById("easyButton").checked && !document.getElementById("mediumButton").checked && 
     !document.getElementById("hardButton").checked && !document.getElementById("extremeButton").checked){
-        console.log("none checked!!");
         return false;
     }else{
         if(document.getElementById("easyButton").checked){difficulty = "Easy"}
         if(document.getElementById("mediumButton").checked){difficulty = "Medium"}
         if(document.getElementById("hardButton").checked){difficulty = "Hard"}
         if(document.getElementById("extremeButton").checked){difficulty = "Extreme"}
-        console.log(difficulty);
         return true;
     }
 }
@@ -389,7 +389,6 @@ function initMap() {
 }
 function updateGame() {
     zoomLevel = gMap.getZoom();
-    console.log("You have moved the map!!");
     inBounds = false;
 
     //Checks if your in bounds
@@ -398,20 +397,18 @@ function updateGame() {
             inBounds = true;
             if(zoomLevel === 8 || cheat === true){
                 //Your Flag Will Spawn here -- For future reference
-                markLocation = new google.maps.Marker({position:{lat:currentPlace.coordinates.lat,lng:currentPlace.coordinates.lng}, map:gMap});
-                console.log(currentPlace.info);
-                infoWindow = new google.maps.InfoWindow({content:currentPlace.info});
-                markLocation.addListener('click', function(){
-                    infoWindow.open(gMap, markLocation);
+                var index = placesChecked;
+                markerArray[placesChecked] = new google.maps.Marker({position:{lat:currentPlace.coordinates.lat,lng:currentPlace.coordinates.lng}, map:gMap});
+                infoArray[placesChecked] = new google.maps.InfoWindow({content:currentPlace.info});
+                
+                markerArray[index].addListener('click', function(){
+                    infoArray[index].open(gMap, markerArray[index]);
                 });
                 currentPlace = getRandomPlace(difficulty);
                 checkIfWon();
             }   
         }
     }
-
-    console.log("You are in bounds: " + inBounds+".");
-    console.log("Your current zoom level is "+ zoomLevel+".");
     updateVolume();
 }
 function SetScore() {
@@ -444,7 +441,6 @@ var getRandomPlace = function(difficulty){
         objectArr.info = "Sorry But Extreme Difficulty Does Not Give Any Info.";
         objectArr.coordinates.lat = (Math.random() * 180) - 90;
         objectArr.coordinates.lng = (Math.random() * 360) - 180;
-        //console.log(objectArr);
     }else{
         console.log("Difficulty Invalid.");
     }
@@ -456,7 +452,6 @@ var getRandomPlace = function(difficulty){
             objectArr = objectArr[randomNum];
         }
     }
-    console.log(objectArr);
     return objectArr;
 }
 
