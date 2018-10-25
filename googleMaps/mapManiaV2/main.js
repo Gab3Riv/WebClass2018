@@ -458,7 +458,6 @@ var hardPlaces = [
         "image": "something.png", 
         "chosen": false
     }
-
 ];
 
 //This is where the Logic Starts
