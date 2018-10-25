@@ -1,11 +1,13 @@
+//Setting Variables
 var gMap, currentPlace, markLocation, infoWindow, inBounds, zoomLevel;
 var difficulty = "";
 var markerArray = ["","","","","","","","","",""];
 var infoArray = ["","","","","","","","","",""];
-var listenersArray = ["","","","","","","","","",""];
 var gameStarted, gameWon, cheat, stopScore = false;
 var score = 0;
 var placesChecked = 0;
+
+//Starting Audio MP3 File and Naming It "themeSong"
 themeSong = new Audio('theme.mp3'); 
 themeSong.addEventListener('ended', function() {
     this.currentTime = 0;
@@ -13,16 +15,6 @@ themeSong.addEventListener('ended', function() {
 }, false);
 themeSong.play();
 themeSong.volume = 0.01;
-
-var enableCheat = function(){
-    stopScore = true;
-    if(!gameWon){
-        cheat = true;
-        updateGame();
-        console.log("You cheated");
-        cheat = false;
-    }
-}
 
 //Game has been programmed to work with each difficulty.
 //These will only be places in United States
@@ -468,6 +460,7 @@ var hardPlaces = [
     }
 
 ];
+
 //This is where the Logic Starts
 var checkIfWon = function(){ //Game Stops Once 10 Places Are Found
     placesChecked += 1;
@@ -475,10 +468,14 @@ var checkIfWon = function(){ //Game Stops Once 10 Places Are Found
         gameWon = true;
     }
 }
+
+//This is What Happens When The Game First Launches
 var launch = function() {
     document.getElementById("header").innerHTML = "Welcome to Gabe's Map Mania!";
     start.open();
 }
+
+//This Checks If The Game Can Start By Checking If A Difficulty Is Set
 var canStartGame = function(){
     if(!document.getElementById("easyButton").checked && !document.getElementById("mediumButton").checked && 
     !document.getElementById("hardButton").checked && !document.getElementById("extremeButton").checked){
@@ -491,12 +488,15 @@ var canStartGame = function(){
         return true;
     }
 }
+
+//2nd Part To The Game Launching After Difficulty Is Checked
 var launchContinued = function(){
     currentPlace = getRandomPlace(difficulty);
     gameStarted = true; 
     startClock();
 }
 
+//This Makes The Google Map Visual + Calls The updateGame() Function When The Map Is Moved
 function initMap() {
     // Where the map initiates
     gMap = new google.maps.Map(document.getElementById("myMapID"), {
@@ -507,10 +507,11 @@ function initMap() {
     });
     setScore(score);
 }
+
+//Updates The Game To See If Player Has Found The Marker
 function updateGame() {
     zoomLevel = gMap.getZoom();
     inBounds = false;
-
     //Checks if your in bounds
     if(gameStarted){
         if(gMap.getBounds().contains(currentPlace.coordinates) || cheat === true){
@@ -531,11 +532,15 @@ function updateGame() {
     }
     updateVolume();
 }
+
+//Sets The Score Visual On The HTML Page
 function setScore() {
     document.getElementById("score-id").value = score; 
 }
+
+//This Function Does The Logic To Get A Random Place
 var getRandomPlace = function(difficulty){
-    var randomNum, length, objectArr, randomLat, randomLng, info;
+    var randomNum, length, objectArr;
     var validPlace = false;
     var objectArr = {
         "name": "",
@@ -547,6 +552,7 @@ var getRandomPlace = function(difficulty){
         "image": "something.png"
     }
 
+    //Grabs The Length Of The JSON Difficulties | Else If Extreme Than It Creates Random Coordinates Because There Is No JSON For Extreme
     if(difficulty === "Easy"){
         objectArr = easyPlaces;
         length = easyPlaces.length;  
@@ -564,6 +570,7 @@ var getRandomPlace = function(difficulty){
     }else{
         console.log("Difficulty Invalid.");
     }
+    //This while Loop Selects A Random Place From The JSON Files, Except For Extreme
     while(validPlace === false && difficulty != "Extreme" && difficulty != ""){
         randomNum = Math.floor(Math.random() * length);
         if(objectArr[randomNum].chosen === false){
@@ -575,6 +582,7 @@ var getRandomPlace = function(difficulty){
     return objectArr;
 }
 
+//Changes The Volume Depending How Close You Are To The Location
 var updateVolume = function(){
     if(inBounds === false){
         themeSong.volume = 0;
@@ -596,6 +604,8 @@ var updateVolume = function(){
         themeSong.volume = 0.01;
     }
 }
+
+//Starts The Clock For The Score
 var startClock = function(){
     setInterval(function(){
         if(!gameWon && !stopScore){
@@ -608,6 +618,19 @@ var startClock = function(){
         }
     }, 10);
 }
+
+//If Restart Is Called The Page Reloads
 var restart = function(){
     location.reload();
+}
+
+//Function If Cheat Is Enabled
+var enableCheat = function(){
+    stopScore = true;
+    if(!gameWon){
+        cheat = true;
+        updateGame();
+        console.log("You cheated");
+        cheat = false;
+    }
 }
