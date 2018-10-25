@@ -3,10 +3,9 @@ var difficulty = "";
 var markerArray = ["","","","","","","","","",""];
 var infoArray = ["","","","","","","","","",""];
 var listenersArray = ["","","","","","","","","",""];
-var gameStarted, gameWon, cheat = false;
+var gameStarted, gameWon, cheat, stopScore = false;
 var score = 0;
 var placesChecked = 0;
-var loc1 = {lat:12.432,lng:43.234};
 themeSong = new Audio('theme.mp3'); 
 themeSong.addEventListener('ended', function() {
     this.currentTime = 0;
@@ -16,6 +15,7 @@ themeSong.play();
 themeSong.volume = 0.01;
 
 var enableCheat = function(){
+    stopScore = true;
     if(!gameWon){
         cheat = true;
         updateGame();
@@ -23,7 +23,6 @@ var enableCheat = function(){
         cheat = false;
     }
 }
-
 
 //Game has been programmed to work with each difficulty.
 //These will only be places in United States
@@ -272,6 +271,16 @@ var mediumPlaces = [
         },
         "image": "something.png", 
         "chosen": false
+    },
+    {
+        "name": "Tamul Falls, Mexico",
+        "info": "One of the Top places to visit in North America.",
+        "coordinates": {
+            "lat": 21.809320,
+            "lng": -99.177596
+        },
+        "image": "something.png", 
+        "chosen": false
     }
 ];
 //These places can be anywhere in the World
@@ -408,6 +417,16 @@ var hardPlaces = [
         "chosen": false
     },
     {
+        "name": "Tamul Falls, Mexico",
+        "info": "One of the Top places to visit in North America.",
+        "coordinates": {
+            "lat": 21.809320,
+            "lng": -99.177596
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
         "name": "Portugal",
         "info": "A Country I Would Like To Visit In The Future.",
         "coordinates": {
@@ -416,7 +435,38 @@ var hardPlaces = [
         },
         "image": "something.png", 
         "chosen": false
+    },
+    {
+        "name": "Ecuador",
+        "info": "Another Country I'd Like To Visit.",
+        "coordinates": {
+            "lat": -0.854855,
+            "lng": -78.421897
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Thailand",
+        "info": "A Country In Asia I Would Like To Visit.",
+        "coordinates": {
+            "lat": 16.186181,
+            "lng": 101.516571
+        },
+        "image": "something.png", 
+        "chosen": false
+    },
+    {
+        "name": "Italy",
+        "info": "I Would Like To Try Authentic Food From Italy One Day.",
+        "coordinates": {
+            "lat": 44.135449,
+            "lng": 10.746128
+        },
+        "image": "something.png", 
+        "chosen": false
     }
+
 ];
 //This is where the Logic Starts
 var checkIfWon = function(){ //Game Stops Once 10 Places Are Found
@@ -455,7 +505,7 @@ function initMap() {
     google.maps.event.addListener(gMap, "idle", function() {
         updateGame();
     });
-    SetScore(score);
+    setScore(score);
 }
 function updateGame() {
     zoomLevel = gMap.getZoom();
@@ -481,7 +531,7 @@ function updateGame() {
     }
     updateVolume();
 }
-function SetScore() {
+function setScore() {
     document.getElementById("score-id").value = score; 
 }
 var getRandomPlace = function(difficulty){
@@ -548,9 +598,13 @@ var updateVolume = function(){
 }
 var startClock = function(){
     setInterval(function(){
-        if(!gameWon){
+        if(!gameWon && !stopScore){
             score += 1;
-            SetScore();
+            setScore();
+        }else{
+            console.log("Did this work?");
+            score = 0;
+            setScore();
         }
     }, 10);
 }
