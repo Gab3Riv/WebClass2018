@@ -610,8 +610,9 @@ var startClock = function(){
         if(!gameWon && !stopScore){
             score += 1;
             setScore();
+        }else if(gameWon){
+            //Stops The Score If Game Is Won
         }else{
-            console.log("Did this work?");
             score = 0;
             setScore();
         }
