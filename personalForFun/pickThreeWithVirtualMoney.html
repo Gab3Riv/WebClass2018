@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Pick 3 Plus Fireball</title>
     <link href="main.css">
-    <script src="main.js"></script>
+    <script src="virtualMoneyLogic.js"></script>
 </head>
 <body>
     <h1>Pick 3 Plus Fireball With A Virtual Wallet</h1>
-    <p>How much money do you have to spend?</p>
+    <p>How much money do you have to spend?</p><input id="balance" value="0">
+    <button onclick="submitBalance()">Confirm Spending Balance</button><br>
     <input id="firstNum" type="number" value="0"><input id="secondNum" type="number" value="0"><input id="thirdNum" type="number" value="0"><br>
     <button onclick="randomOne()">Randomize Number 1</button><button onclick="randomTwo()">Randomize Number 2</button><button onclick="randomThree()">Rnadomize Number 3</button><br>
     <div id="result">1. 0 0 0 Fireball: 0</div>
