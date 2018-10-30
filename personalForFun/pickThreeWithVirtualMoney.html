@@ -8,8 +8,15 @@
 </head>
 <body>
     <h1>Pick 3 Plus Fireball With A Virtual Wallet</h1>
-    <p>How much money do you have to spend?</p><input id="balance" value="0">
-    <button onclick="submitBalance()">Confirm Spending Balance</button><br>
+    <p id="balanceText">Your Balance: $0.00</p>
+    <p>----------- ADD FUNDS BELOW -----------</p>
+    <input id="balance" value="0">
+    <button onclick="submitBalance()">Deposit Money</button>
+    <p>------- SETTINGS FOR NEXT DRAWING PICK 3 ---------</p>
+    <p>How Many Number Combinations Do You Want? (1-3)</p><input id="inputDrawings" value="1"><button onclick="submitCombinations()">Submit Combinations</button><br><br>
+    <p class="classDrawingsDisplay" id="drawingsDisplayOne"></p>
+    <p class="classDrawingsDisplay" id="drawingsDisplayTwo"></p>
+    <p class="classDrawingsDisplay" id="drawingsDisplayThree"></p>
     <input id="firstNum" type="number" value="0"><input id="secondNum" type="number" value="0"><input id="thirdNum" type="number" value="0"><br>
     <button onclick="randomOne()">Randomize Number 1</button><button onclick="randomTwo()">Randomize Number 2</button><button onclick="randomThree()">Rnadomize Number 3</button><br>
     <div id="result">1. 0 0 0 Fireball: 0</div>
