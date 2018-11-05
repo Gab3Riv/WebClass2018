@@ -1,6 +1,5 @@
 var contactURLArray = [];
 var contactsArray = [];
-
 var loadIndex = function(){
     var indexRequest = new XMLHttpRequest();
     indexRequest.open("GET", "https://mustang-index.azurewebsites.net/index.json");
@@ -25,14 +24,10 @@ var loadContacts = function(){
         indexRequest.send();
     }
 }
-/*
-var loadContacts = function(){
-    document.getElementById("contacts").innerHTML = "Contacts: " + "Added Contacts";
-    contactURLArray.length = 0;
-    loadingContact = 0;
-
-    if(contactURLArray.length > loadingContact){
-        loadNextContact(contactURLArray[loadingContact]);
+var logContacts = function(){
+    if(contactsArray.length != 0){
+        console.log(contactsArray);
+    }else{
+        console.log("You must first click the Load Index button, then Load Contacts button, then finally the Console Log Contacts button.");
     }
 }
-*/
