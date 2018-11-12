@@ -22,7 +22,6 @@ var loadContacts = function(){
             contactsArray.push(JSON.parse(indexRequest.response));
         }
         indexRequest.send();
-        setTimeout(3000);
     }
 }
 var logContacts = function(){
