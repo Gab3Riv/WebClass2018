@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<!--
+    Author:  Gabriel Rivera
+    Class:   Web & Distributed Programming 
+    Project: Mustang v2 Lite
+-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Mustang v3</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+        <script src="modal.js"></script>
+    </head>    
+    <body class="center" onload="initApplication()">
+        <h1>Mustang v3 By Gabe Rivera</h1> 
+            <button type="button" onclick="importContacts()">Import Contacts</button><br><br>
+            <button type="button" onclick="saveContactsToServer()">Save Contacts</button>
+            <button type="button" onclick="loadContactsFromServer()">Load Contacts</button>
+            <button type="button" onclick="logContacts()">Log Contacts</button>
+            <br><br>
+
+            <table align="center">
+            <tr>
+                <td>Name:</td>
+                <td> 
+                    <input id="nameID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input id="emailID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>Zip</td>
+                <td>
+                    <input id="zipID" type="text" value="" size="20" onblur="zipBlurFunction()">
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <input id="cityID" type="text" value="" size="20">
+                </td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td>
+                    <input id="stateID" type="text" value="" size="20">
+                </td>
+            </tr>
+            </table>
+
+        <br>
+        <button onclick="goToFirst()">First</button>
+        <button type="button" onclick="previous()">Previous</button>
+        <button type="button" autofocus onclick="next()">Next</button>
+        <button onclick="goToLast()">Last</button><br><br>
+        <button type="button" onclick="add.open()">New</button>
+        <div id="modalID" class="modal">
+            <div class="modal-content">
+                <span onclick="add.close()" class="close">&times;</span>
+                <h2 style="color: cyan;">Create Your New Contact</h2>
+                <p>
+                    <table align="center">
+                        <tr>
+                            <td>Name:</td>
+                            <td> 
+                                <input id="modalnameID" type="text" value="" size="20">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>
+                                <input id="modalemailID" type="text" value="" size="20">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Zip</td>
+                            <td>
+                                <input id="modalzipID" type="text" value="" size="20" onblur="zipBlurFunction()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td>
+                                <input id="modalcityID" type="text" value="" size="20">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>State:</td>
+                            <td>
+                                <input id="modalstateID" type="text" value="" size="20">
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+                <button onclick="submit()">Submit</button>
+                <button onclick="add.close()">Cancel</button>
+            </div>
+        </div>
+        <button type="button" onclick="remove.open()">Delete</button><br><br>
+        <div id="modalremoveID" class="modal">
+            <div class="modal-content">
+                <span onclick="remove.close()" class="close">&times;</span>
+                <h2 style="color: cyan;">Are You Sure You Want To Delete The Current Contact?</h2>
+                <div id='removeWarning'></div>
+                <button onclick="deleteContact()">Remove</button>
+                <button onclick="remove.close()">Cancel</button>
+            </div>
+        </div>
+        <p id="statusID"></p>
+    </body>
+</html>
